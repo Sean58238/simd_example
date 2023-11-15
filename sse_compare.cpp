@@ -5,7 +5,6 @@ Lin,Xiang
 */
 
 #include <iostream>
-#include <immintrin.h>
 #include <nmmintrin.h>
 #include <sys/time.h>
 
