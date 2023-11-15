@@ -16,8 +16,6 @@ Lin,Xiang
  float result1[N];
  float result2[N];
 
-
-
 void init()
 {
 	for(int i = 0;i < N; i++)
@@ -26,7 +24,6 @@ void init()
 		op2[i] = (float)rand()/(float)RAND_MAX;
 	}
 }
-
 
 void add()
 {
@@ -54,7 +51,6 @@ void add_sse()
 	}
 }
 
-
 int main(int argc, char* argv[])
 {
 	init();
@@ -71,15 +67,13 @@ int main(int argc, char* argv[])
     std::cout<<"Elapsed time (ms) : "<<timeuse<<std::endl;  //输出时间（单位：ms）
 
 
-    struct timeval t3,t4;
-	double timeuse2;
 	printf("\n");
 	printf("Add a vector with SSE4.2 instructions\n");
-	gettimeofday(&t3,NULL);
+	gettimeofday(&t1,NULL);
 	add_sse();
-	gettimeofday(&t4,NULL);
-    timeuse2 = (t4.tv_sec - t3.tv_sec) + (double)(t4.tv_usec - t3.tv_usec)/1000000000.0;
-    std::cout<<"Elapsed time (ms): "<<timeuse2<<std::endl;  //输出时间（单位：ms）
+	gettimeofday(&t2,NULL);
+    timeuse = (t2.tv_sec - t1.tv_sec) + (double)(t2.tv_usec - t1.tv_usec)/1000000000.0;
+    std::cout<<"Elapsed time (ms): "<<timeuse<<std::endl;  //输出时间（单位：ms）
  
 	return 0;
 }
